@@ -17,7 +17,13 @@ The template also includes the default options offered by [`create-next-app`](ht
 
 ## Getting Started Locally
 
-First, run the development server:
+To use this template, run the following command:
+
+```cmd
+npx create-next-app@latest --example https://github.com/anniebabannie/fly-nextjs-template <your-app-name>
+```
+
+To run the app locally, start the development server:
 
 ```bash
 npm run dev
@@ -39,11 +45,16 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 To take advantage of the Github Actions included in this template, generate a Fly.io auth token using [flyctl](https://fly.io/docs/hands-on/install-flyctl/):
 
-```cmd
+
+```bash
+# obtain the Fly API token
 fly auth token
+
+# set the repository secret in GitHub
+gh secret set FLY_API_TOKEN=<your-token>
 ```
 
-Next, save this value as a [repository secret](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) with the name `FLY_API_TOKEN` on your Next.js app's Github repo.
+If you don't have the GitHub CLI installed, you can also set the repository secret through the Settings tab on your repo.
 
 ## Deploy to Fly.io
 
