@@ -60,7 +60,7 @@ If you don't have the GitHub CLI installed, you can also set the repository secr
 
 First, launch your app to Fly.io by running the following command:
 
-```cmd
+```bash
 fly launch
 ```
 
