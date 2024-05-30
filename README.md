@@ -1,4 +1,6 @@
 ![Next.js + Fly.io logos](nextjs-flyio.png)
+
+# Next.js Template for Fly.io
 This is a [Next.js](https://nextjs.org/) template that's configured for easy deployment on Fly.io. It's bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), and includes the following:
 
 - Config for `standalone` builds (this keeps your Docker image as small as possible)
