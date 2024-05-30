@@ -1,6 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) template that's configured for easy deployment on Fly.io. It's bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), and includes the following:
 
-## Getting Started
+- Config for `standalone` builds (this keeps your Docker image as small as possible)
+- Github Action workflow for auto-deploys when `main` branch is updated
+- Github Action workflow for spinning up [review apps](https://fly.io/docs/blueprints/review-apps-guide/) each time a new PR is made
+
+The template also includes the default options offered by [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app):
+
+- TypeScript
+- Tailwind
+- App Router
+- ESLint
+
+
+## Getting Started Locally
 
 First, run the development server:
 
@@ -20,17 +32,27 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Auto-deploy and review apps
 
-To learn more about Next.js, take a look at the following resources:
+To take advantage of the Github Actions included in this template, generate a Fly.io auth token using [flyctl](https://fly.io/docs/hands-on/install-flyctl/):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```cmd
+fly auth token
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Next, save this value as a [repository secret](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) with the name `FLY_API_TOKEN` on your Next.js app's Github repo.
 
-## Deploy on Vercel
+## Deploy to Fly.io
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+First, launch your app to Fly.io by running the following command:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```cmd
+fly launch
+```
+
+This will generate a Dockerfile and a `fly.toml` for you. You can update the name of your Fly application in the `fly.toml` to whatever you like.
+
+Next, you can make your first deploy in one of two ways:
+
+1. Run `fly deploy`
+2. If you've added your `FLY_API_TOKEN` as a repository secret in Github, you can `git push origin main`, and the auto-deploy Github action will deploy it for you.
