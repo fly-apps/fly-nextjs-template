@@ -19,7 +19,7 @@ The template also includes the default options offered by [`create-next-app`](ht
 
 To use this template, run the following command:
 
-```cmd
+```bash
 npx create-next-app@latest --example https://github.com/anniebabannie/fly-nextjs-template <your-app-name>
 ```
 
