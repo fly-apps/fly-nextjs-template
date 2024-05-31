@@ -1,4 +1,4 @@
-![Next.js + Fly.io logos](nextjs-flyio2.png)
+![Next.js + Fly.io logos](public/nextjs-flyio2.png)
 
 # Next.js Template for Fly.io
 This is a [Next.js](https://nextjs.org/) template that's configured for easy deployment on Fly.io. It's bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), and includes the following:
@@ -43,28 +43,23 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Auto-deploy and review apps
 
-To take advantage of the Github Actions included in this template, generate a Fly.io auth token using [flyctl](https://fly.io/docs/hands-on/install-flyctl/):
+To take advantage of the Github Actions included in this template, generate a Fly.io auth token using [flyctl](https://fly.io/docs/hands-on/install-flyctl/), and then set it as a repository secret on your repo. This is most easily done through the [GitHub CLI](https://github.com/cli/cli?tab=readme-ov-file#installation), but it's also possible to set secrets from the [web UI](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions?tool=webui#creating-secrets-for-a-repository).
 
 
 ```bash
-# obtain the Fly API token
-fly auth token
-
 # set the repository secret in GitHub
-gh secret set FLY_API_TOKEN=<your-token>
+fly auth token | gh secret set FLY_API_TOKEN
 ```
-
-If you don't have the GitHub CLI installed, you can also set the repository secret through the Settings tab on your repo.
 
 ## Deploy to Fly.io
 
 First, launch your app to Fly.io by running the following command:
 
 ```bash
-fly launch
+fly launch --name $YOUR_APP_NAME
 ```
 
-This will generate a Dockerfile and a `fly.toml` for you. You can update the name of your Fly application in the `fly.toml` to whatever you like.
+Replace `$YOUR_APP_NAME` with whatever name you'd like. This command will generate a Dockerfile and a `fly.toml` for you. 
 
 Next, you can make your first deploy in one of two ways:
 
