@@ -61,7 +61,7 @@ fly launch --name $YOUR_APP_NAME
 
 Replace `$YOUR_APP_NAME` with whatever name you'd like. This command will generate a Dockerfile and a `fly.toml` for you. 
 
-Next, you can make your first deploy in one of two ways:
+Lastly, you can make your first deploy in one of two ways:
 
 1. Run `fly deploy`
 2. If you've added your `FLY_API_TOKEN` as a repository secret in Github, you can `git push origin main`, and the auto-deploy Github action will deploy it for you.
