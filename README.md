@@ -20,7 +20,7 @@ The template also includes the default options offered by [`create-next-app`](ht
 To use this template, run the following command:
 
 ```bash
-npx create-next-app@latest --example https://github.com/anniebabannie/fly-nextjs-template <your-app-name>
+npx create-next-app@latest --example https://github.com/fly-apps/fly-nextjs-template <your-app-name>
 ```
 
 To run the app locally, start the development server:
